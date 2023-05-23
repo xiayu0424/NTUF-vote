@@ -1,0 +1,8 @@
+Flask
+pytesseract
+pybase64
+pycryptodome
+pathlib
+gunicorn
+opencv-python-headless
+gevent

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+        <title>
+            台大森林系學會長投票系統
+        </title>
+        <style type="text/css">
+        body{
+            font-size: 16px;font-family: "微軟正黑體";
+            }
+        </style>
+        <script type="text/javascript">
+            function signcheck(){
+                var x=document.getElementById(id="id").value;
+                var y=document.getElementById(id="password").value;
+            };
+            function imagecheck(){
+                const fileUploader = document.getElementById('img');
+                fileUploader.addEventListener('change', (event) => {
+                const files = event.target.files;
+                console.log('files', files);
+                });
+            };
+        </script>
+    </head>
+    <body style="display: grid; grid-template-rows: 1fr auto;">
+        <section id="intro">
+            <div style="height: 5%; background-color: #747032; " class="jumbotron">
+                <div style="position: relative; top:80%;" class="container">
+                    <div class="col-md-12">
+                        <h1 style="line-height: 2; color: #445b0b; font-weight: 550;">
+                            驗證
+                        </h1>
+                    </div>
+                    <div>
+                        <h6>
+                            為確保您為國立台灣大學森林環境暨資源學系之大學部在學學生，請提供以下資料<br>
+                            <br>學生證請正面、清楚拍攝，否則易判讀錯誤<br>
+                            請勿重複投票，若有技術問題請聯絡設計團隊<br><br>
+                        </h6>
+                    </div>
+                    <div>
+                        {% if value == "0" %}
+                        <form method='post' action="/submit" enctype="multipart/form-data">
+                            <h5>姓名 : <input name="name" required></h5>
+                            <h5>學號 : <input name="id" required></h5>
+                            <h5>學生證正面 : <input type="file"  name="img" accept=".jpg, .png" required></h5>
+                            <p>&emsp;</p>
+                            <input type="submit" value="送出" name="send" class="btn" style="padding: 7px 18px; border-radius: 10px; font-size: 18; background-color: #939d43; color: white;">
+                        </form>
+                        {% elif value == "1" %}
+                        <h5>驗證成功</h5>
+                        <h5>您的金鑰為 : {{passw}}</h5>
+                        <h5><a class="btn" href="vote.html" style="padding: 7px 18px; border-radius: 10px; font-size: 18; background-color: #939d43; color: white;">點此進入投票</a></h5>
+                        {% elif value == "2" %}
+                        <h5>驗證失敗</h5>
+                        <h5>請確認學身證是否正面、清楚拍攝，或您是否已經投過票，若有問題請洽設計團隊</h5>
+                        <h5><a class="btn" href="verify.html" style="padding: 7px 18px; border-radius: 10px; font-size: 18; background-color: #939d43; color: white;">點此返回</a></h5>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
