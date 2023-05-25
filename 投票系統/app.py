@@ -33,14 +33,14 @@ def submit():
         if request.values['send'] == '送出':
             id = request.values.get("id")
             name = request.values.get("name")
-            img = request.files['img']
+            # img = request.files['img']
             key = rc4_algorithm("encrypt",id)
-        if img.filename != '':
-            path=str(id)+img.filename[-4:]
-            img.save(os.path.join(UPLOAD_FOLDER, path))
-            img_path = os.path.join(UPLOAD_FOLDER, path)            
+        # if img.filename != '':
+        #     path=str(id)+img.filename[-4:]
+        #     img.save(os.path.join(UPLOAD_FOLDER, path))
+        #     img_path = os.path.join(UPLOAD_FOLDER, path)            
 
-            if(verified(id,name,img_path,key)) :        
+            if(verified(id,name,key)) :        
                 return render_template('verify.html',passw=key,value='1')
             else:
                 return render_template('verify.html',value='2') 
@@ -64,11 +64,11 @@ def voting():
             else:
                 data['password'].append(password)
                 if(result=="1"):
-                    data["vote"]["No.1"] +=1
+                    data["vote"]["Agree"] +=1
                     with open('data.json','w',encoding='utF8') as f:
                         json.dump(data,f,indent=4)
                 elif(result=="2"):
-                    data["vote"]["No.2"] +=1
+                    data["vote"]["Disagree"] +=1
                     with open('data.json','w',encoding='utF8') as f:
                         json.dump(data,f,indent=4)
                 

@@ -6,8 +6,8 @@
         }
     },
     "vote": {
-        "No.1": 0,
-        "No.2": 0
+        "Agree": 0,
+        "Disagree": 0
     },
     "password": [
         "00000000"

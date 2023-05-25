@@ -37,20 +37,20 @@
                             驗證
                         </h1>
                     </div>
-                    <div>
+                    <!-- <div>
                         <h6>
                             為確保您為國立台灣大學森林環境暨資源學系之大學部在學學生，請提供以下資料<br>
                             <br>學生證請正面、清楚拍攝，否則易判讀錯誤<br>
                             請勿重複投票，若有技術問題請聯絡設計團隊<br><br>
                         </h6>
-                    </div>
+                    </div> -->
                     <div>
                         {% if value == "0" %}
                         <form method='post' action="/submit" enctype="multipart/form-data">
                             <h5>姓名 : <input name="name" required></h5>
                             <h5>學號 : <input name="id" required></h5>
-                            <h5>學生證正面 : <input type="file"  name="img" accept=".jpg, .png" required></h5>
-                            <p>&emsp;</p>
+                            <!-- <h5>學生證正面 : <input type="file"  name="img" accept=".jpg, .png" required></h5>
+                            <p>&emsp;</p> -->
                             <input type="submit" value="送出" name="send" class="btn" style="padding: 7px 18px; border-radius: 10px; font-size: 18; background-color: #939d43; color: white;">
                         </form>
                         {% elif value == "1" %}
@@ -59,7 +59,7 @@
                         <h5><a class="btn" href="vote.html" style="padding: 7px 18px; border-radius: 10px; font-size: 18; background-color: #939d43; color: white;">點此進入投票</a></h5>
                         {% elif value == "2" %}
                         <h5>驗證失敗</h5>
-                        <h5>請確認學身證是否正面、清楚拍攝，或您是否已經投過票，若有問題請洽設計團隊</h5>
+                        <h5>請確認您是否已經投過票，若有問題請洽設計團隊</h5>
                         <h5><a class="btn" href="verify.html" style="padding: 7px 18px; border-radius: 10px; font-size: 18; background-color: #939d43; color: white;">點此返回</a></h5>
                         {% endif %}
                     </div>
