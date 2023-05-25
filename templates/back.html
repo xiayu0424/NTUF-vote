@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            投票系統後台
+        </title>
+        <style type="text/css">
+        body{
+            font-size: 16px;font-family: "微軟正黑體";
+            }
+
+        </style>
+        <script type="text/javascript">
+            
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2 style="font: size 30px;">國立台灣大學森林記環境資源學系系學會會長選舉投票</h2>
+        </div>
+        <div >
+            <p>目前投票結果 : </p>
+            <table>
+                <tr>
+                    {% for n in num %}
+                    <td>{{n}}</td>
+                    <td>&nbsp</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for col in voted %}
+                    <td>{{col}}</td>
+                    <td>&nbsp</td>
+                    {% endfor %}
+                </tr>
+            </table>
+            <p>投票者 : </p>
+            <table>
+                <tr>
+                    {% for cell in name %}
+                    <td>{{cell}}</td>
+                    <td>&nbsp</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

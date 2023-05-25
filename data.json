@@ -1,0 +1,18 @@
+{
+    "data": {
+        "B09605000": {
+            "name": "test",
+            "password": "00000000"
+        }
+    },
+    "vote": {
+        "Agree": 0,
+        "Disagree": 0
+    },
+    "password": [
+        "00000000"
+    ],
+    "img": [
+        "test"
+    ]
+}
