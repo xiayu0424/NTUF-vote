@@ -40,7 +40,7 @@
                     <div>
                         {% if voted == "0" %}
                         <form method='post' action="/vote">
-                            <img src="politics.png" width="700" />
+                            <img src="{{ url_for('static', filename='politics.png') }}" width="700" />
                             <h4>密鑰 : <input name="pass" required></h4>
                             <h4 style="line-height:1.5; ">是否同意候選人李欣岳、王明瑾<br>
                             <input type="radio" name="people" value="1">&nbsp;同意<br>
